@@ -17,7 +17,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	@Query("SELECT DISTINCT obj FROM Client obj WHERE obj.income >= :income")
 	Page<Client> findByIncome(Double income, Pageable pageable);
 	
-	
 	List<Client> findByNameContainingIgnoreCase(String name);
 	
 	@Query("SELECT DISTINCT obj FROM Client obj WHERE obj.birthDate = :birthDate OR YEAR(obj.birthDate) LIKE YEAR(:birthDate)")
