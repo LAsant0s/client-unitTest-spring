@@ -32,6 +32,12 @@ public class ClientResource {
 	
 	@Autowired
 	private ClientService service;
+	
+	@GetMapping(value = "/findAll")
+	public ResponseEntity<List<ClientDTO>> findAll() {
+		List<ClientDTO> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
 
 	@GetMapping
 	public ResponseEntity<Page<ClientDTO>> findAll(
